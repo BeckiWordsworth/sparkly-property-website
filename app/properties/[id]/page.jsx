@@ -1,18 +1,19 @@
 "use client";
 
 import React from "react";
-import { useRouter, useParams, useSearchParams } from "next/navigation";
+import { useRouter, useParams, useSearchParams, usePathname, usePathname } from "next/navigation";
 
 const PropertyPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { id } = useParams();
   const name = searchParams.get("name");
+  const usePathname = usePathname();
 
   return (
     <div>
       <button onClick={() => router.push("/")} className="bg-blue-500 p-2">
-        Go Home {name}
+        Go Home {pathname}
       </button>
     </div>
   );
