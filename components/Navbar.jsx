@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from "@/assets/images/logo-white.png";
 import profileDefault from "@/assets/images/profile.png";
 import Link from "next/link";
+import { FaGoogle } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -42,10 +43,7 @@ const Navbar = () => {
             {/* <!-- Desktop Menu Hidden below md screens --> */}
             <div className="hidden md:ml-6 md:block">
               <div className="flex space-x-2">
-                <Link
-                  href="/index.html"
-                  className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                >
+                <Link href="/" className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
                   Home
                 </Link>
                 <Link href="/properties" className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
@@ -65,7 +63,7 @@ const Navbar = () => {
           <div className="hidden md:block md:ml-6">
             <div className="flex items-center">
               <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
-                <i className="fa-brands fa-google text-white mr-2"></i>
+                <FaGoogle className="text-white mr-2" />
                 <span>Login or Register</span>
               </button>
             </div>
@@ -142,14 +140,14 @@ const Navbar = () => {
                 >
                   Saved Properties
                 </Link>
-                <Button
+                <button
                   className="block px-4 py-2 text-sm text-gray-700"
                   role="menuitem"
                   tabIndex="-1"
                   id="user-menu-item-2"
                 >
                   Sign Out
-                </Button>
+                </button>
               </div>
             </div>
           </div>
