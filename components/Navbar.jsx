@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/images/logo-white.png";
@@ -9,6 +10,7 @@ import { FaGoogle } from "react-icons/fa";
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="bg-blue-700 border-b border-blue-500">
@@ -49,15 +51,27 @@ const Navbar = () => {
             {/* <!-- Desktop Menu Hidden below md screens --> */}
             <div className="hidden md:ml-6 md:block">
               <div className="flex space-x-2">
-                <Link href="/" className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
+                <Link
+                  href="/"
+                  className={`${
+                    pathname === "/" ? "bg-balck" : ""
+                  } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                >
                   Home
                 </Link>
-                <Link href="/properties" className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
+                <Link
+                  href="/properties"
+                  className={`${
+                    pathname === "/properties" ? "bg-balck" : ""
+                  } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                >
                   Properties
                 </Link>
                 <Link
                   href="/properties/add"
-                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  className={`${
+                    pathname === "/properties/add" ? "bg-balck" : ""
+                  } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                 >
                   Add Property
                 </Link>
@@ -167,18 +181,27 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div id="mobile-menu">
           <div className="space-y-1 px-2 pb-3 pt-2">
-            <Link href="/" className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium">
+            <Link
+              href="/"
+              className={`${
+                pathname === "/" ? "bg-balck" : ""
+              }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
+            >
               Home
             </Link>
             <Link
               href="/properties"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+              className={`${
+                pathname === "/properties" ? "bg-balck" : ""
+              }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
             >
               Properties
             </Link>
             <Link
               href="/properties/add"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+              className={`${
+                pathname === "/properties/add" ? "bg-balck" : ""
+              }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
             >
               Add Property
             </Link>
