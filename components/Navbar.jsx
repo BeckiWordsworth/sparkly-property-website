@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const pathname = usePathname();
 
   return (
@@ -192,7 +193,7 @@ const Navbar = () => {
               href="/"
               className={`${
                 pathname === "/" ? "bg-black" : ""
-              }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
+              } text-white block rounded-md px-3 py-2 text-base font-medium`}
             >
               Home
             </Link>
@@ -200,21 +201,21 @@ const Navbar = () => {
               href="/properties"
               className={`${
                 pathname === "/properties" ? "bg-black" : ""
-              }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
+              } text-white block rounded-md px-3 py-2 text-base font-medium`}
             >
               Properties
             </Link>
-
             {isLoggedIn && (
               <Link
                 href="/properties/add"
                 className={`${
                   pathname === "/properties/add" ? "bg-black" : ""
-                }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
+                } text-white block rounded-md px-3 py-2 text-base font-medium`}
               >
                 Add Property
               </Link>
             )}
+
             {!isLoggedIn && (
               <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4">
                 <span>Login or Register</span>
