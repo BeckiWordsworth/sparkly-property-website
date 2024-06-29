@@ -55,7 +55,7 @@ const Navbar = () => {
                 <Link
                   href="/"
                   className={`${
-                    pathname === "/" ? "bg-balck" : ""
+                    pathname === "/" ? "bg-black" : ""
                   } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                 >
                   Home
@@ -63,7 +63,7 @@ const Navbar = () => {
                 <Link
                   href="/properties"
                   className={`${
-                    pathname === "/properties" ? "bg-balck" : ""
+                    pathname === "/properties" ? "bg-black" : ""
                   } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                 >
                   Properties
@@ -72,7 +72,7 @@ const Navbar = () => {
                   <Link
                     href="/properties/add"
                     className={`${
-                      pathname === "/properties/add" ? "bg-balck" : ""
+                      pathname === "/properties/add" ? "bg-black" : ""
                     } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                   >
                     Add Property
@@ -187,7 +187,7 @@ const Navbar = () => {
             <Link
               href="/"
               className={`${
-                pathname === "/" ? "bg-balck" : ""
+                pathname === "/" ? "bg-black" : ""
               }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
             >
               Home
@@ -195,19 +195,23 @@ const Navbar = () => {
             <Link
               href="/properties"
               className={`${
-                pathname === "/properties" ? "bg-balck" : ""
+                pathname === "/properties" ? "bg-black" : ""
               }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
             >
               Properties
             </Link>
-            <Link
-              href="/properties/add"
-              className={`${
-                pathname === "/properties/add" ? "bg-balck" : ""
-              }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
-            >
-              Add Property
-            </Link>
+
+            {isLoggedIn && (
+              <Link
+                href="/properties/add"
+                className={`${
+                  pathname === "/properties/add" ? "bg-black" : ""
+                }bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium`}
+              >
+                Add Property
+              </Link>
+            )}
+
             <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4">
               <FaGoogle className="text-white -mr-2" />
               <span>Login or Register</span>
