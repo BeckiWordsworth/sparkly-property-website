@@ -1,16 +1,37 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
-const PropertyCard = () => {
+const PropertyCard = ({ property }) => {
+  const getRateDisplay = () => {
+    const { rates } = property;
+
+    if (rates.monthly) {
+      return `${rates.monthly.toLocaleString()}/mo`;
+    } else if (rates.weekly) {
+      return `${rates.weekly.toLocaleString()}/wk`;
+    } else if (rates.nightly) {
+      return `${rates.nightly.toLocaleString()}/night`;
+    }
+  };
+
   return (
     <div className="rounded-xl shadow-md relative">
-      <img src="images/properties/a1.jpg" alt="" className="w-full h-auto rounded-t-xl" />
+      <Image
+        src={`/images/properties/${property.images[0]}`}
+        alt=""
+        sizes="100vw"
+        height={0}
+        width={0}
+        className="w-full h-auto rounded-t-xl"
+      />
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">
-          <div className="text-gray-600">Apartment</div>
-          <h3 className="text-xl font-bold">Stockholm Commons Retreat</h3>
+          <div className="text-gray-600">{property.type}</div>
+          <h3 className="text-xl font-bold">{property.name}</h3>
         </div>
         <h3 className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right">
-          42000 SEK/mo
+          {getRateDisplay()} SEK
         </h3>
 
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
@@ -42,12 +63,12 @@ const PropertyCard = () => {
             <i className="fa-solid fa-location-dot text-lg text-orange-700"></i>
             <span className="text-orange-700"> Stockholm, Stockholm County </span>
           </div>
-          <a
+          <Link
             href="property.html"
             className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
